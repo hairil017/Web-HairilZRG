@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linktree</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="video-container">
+        <video id="bg-video" autoplay muted loop>
+          <source src="vidiobg.mp4" type="video/mp4" />
+        </video>
+        <div class="overlay"></div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="profile-image"></div>
+      <div class="profile-name">Hairil Ikhsan</div>
+      <div class="background-toggle"></div>
+      <div class="links">
+        <div class="link-container animated-link">
+          <a class="link" href="https://www.instagram.com/">
+            <img src="logoinstagram.jpg" alt="Instagram Logo" /> Instagram
+          </a>
+        </div>
+        <div class="link-container animated-link">
+          <a class="link" href="https://www.facebook.com/">
+            <img src="logofc.jpg" alt="Facebook Logo" /> Facebook
+          </a>
+        </div>
+        <div class="link-container animated-link">
+          <a class="link" href="https://siaka.undipa.ac.id/">
+            <img src="logoud.png" alt="Siaka Logo" /> : S i a k a
+          </a>
+        </div>
+        <div class="link-container animated-link">
+          <a class="link" href="https://telegram.org/">
+            <img src="logotl.jpg" alt="Telegram Logo" /> Telegram
+          </a>
+        </div>
+        <p
+          style="
+            font-family: 'COOPER BLACK', sans-serif;
+            font-size: 30px;
+            color: white;
+          "
+        >
+          Terbentur-Terbentur, Baru Terbentuk.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const backgroundToggle = document.querySelector(".background-toggle");
+      const links = document.querySelectorAll(".link");
+
+      backgroundToggle.addEventListener("click", () => {
+        document.body.classList.toggle("active");
+        links.forEach((link) => link.classList.toggle("active"));
+      });
+
+      links.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          links.forEach((link) => link.classList.remove("active"));
+          link.classList.add("active");
+          window.open(link.getAttribute("href"), "_blank");
+        });
+      });
+    </script>
+  </body>
+</html>
